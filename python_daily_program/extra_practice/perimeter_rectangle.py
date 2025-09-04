@@ -1,0 +1,5 @@
+l = float(input("Enter the length :"))
+w = float(input("ENTER the width :"))
+perimeter = 2 * (l + w)
+#print("perimeter of {} and {} is : {}".format(l,w,perimeter))
+print(f"perimeter of {l} and {w} is : {perimeter}")
