@@ -1,0 +1,10 @@
+id :1,name: hensi,city: morbi
+--------------------
+id :2,name: divya,city: rajkot
+--------------------
+id :1,name: hensi,city: morbi
+-------------------------
+id :2,name: divya,city: rajkot
+-------------------------
+id :3,name: mahek,city: jamnagar
+-------------------------

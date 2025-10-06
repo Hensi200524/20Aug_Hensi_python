@@ -1,7 +1,7 @@
 
 import datetime
 
-x=datetime.datetime.now()
+x=datetime.datetime.now() # Get the current date and time
 print(x)
 
 print("Date:",x.day)

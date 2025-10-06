@@ -7,5 +7,5 @@ data={
 }
 
 print(data)
-x = pandas.DataFrame(data)
+x = pandas.DataFrame(data) #display data in tabular format
 print(x)

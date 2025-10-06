@@ -1,0 +1,2 @@
+id := 1 and name := Hensi
+id := 2 and name := Krishna
