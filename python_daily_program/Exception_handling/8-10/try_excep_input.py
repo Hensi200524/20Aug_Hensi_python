@@ -1,0 +1,6 @@
+try:
+    a = int(input("Enter a number: "))
+    b = int(input("Enter another number: "))
+    print("Sum:", a + b)
+except:
+    print("Error!") #you enter float value to print error
