@@ -1,0 +1,38 @@
+python all command 
+
+==============================================
+date : 4-11:
+
+CREATE table mytable(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,age INT,city TEXT);
+
+INSERT INTO mytable(name,age,city)VALUES('Hensi',21,'Morbi'),
+('Isha',18,'Botad'),
+('Parul',25,'Jamnagar'),
+('Ridhhi',26,'Rajkot');
+
+UPDATE mytable set city = 'Ahmdabad' WHERE id = 5;
+
+DELETE FROM mytable WHERE id = 6;
+
+ALTER TABLE mytable add COLUMN course TEXT;
+
+UPDATE mytable SET course = "python";
+
+#ALTER TABLE mytable modify course = 'java' WHERE id = 2;
+
+ALTER table mytable DROP course;
+
+#ALTER table mytable changes name fullname text;
+
+truncate table mytable;
+
+drop table mytable;
+
+ALTER table mytable RENAME to my_tab;
+
+select * FROM my_tab;
+
+SELECT name,city from my_tab WHERE age>21;
+
+================================================
+
