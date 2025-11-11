@@ -1,0 +1,9 @@
+Invoice ID,1
+Patient,Divya
+Created,2025-11-10T15:06:42.481350
+
+Item,Value
+
+Subtotal,500.0
+Tax,25.0
+Total,525.0

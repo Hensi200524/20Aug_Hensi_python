@@ -1,0 +1,9 @@
+Invoice ID: 2
+Patient: None
+Created: 2025-11-11T14:13:13.288475
+
+Items:
+
+Subtotal: 500.0
+Tax: 10.0
+Total: 510.0
