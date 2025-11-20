@@ -1,0 +1,62 @@
+Microsoft Windows [Version 10.0.22621.4317]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\tops\20Aug_hensi_python\projects>virtualenv henv
+created virtual environment CPython3.12.4.final.0-64 in 10483ms
+  creator CPython3Windows(dest=D:\tops\20Aug_hensi_python\projects\henv, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, via=copy, app_data_dir=C:\Users\Vaghela\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==25.3
+  activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+
+D:\tops\20Aug_hensi_python\projects>henv\Scripts\activate
+
+(henv) D:\tops\20Aug_hensi_python\projects>pip install django
+Collecting django
+  Using cached django-5.2.8-py3-none-any.whl.metadata (4.1 kB)
+Collecting asgiref>=3.8.1 (from django)
+  Using cached asgiref-3.10.0-py3-none-any.whl.metadata (9.3 kB)
+Collecting sqlparse>=0.3.1 (from django)
+  Using cached sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+Collecting tzdata (from django)
+  Using cached tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Using cached django-5.2.8-py3-none-any.whl (8.3 MB)
+Using cached asgiref-3.10.0-py3-none-any.whl (24 kB)
+Using cached sqlparse-0.5.3-py3-none-any.whl (44 kB)
+Using cached tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, django
+Successfully installed asgiref-3.10.0 django-5.2.8 sqlparse-0.5.3 tzdata-2025.2
+
+(henv) D:\tops\20Aug_hensi_python\projects>pip install django==4.2
+Collecting django==4.2
+  Downloading Django-4.2-py3-none-any.whl.metadata (4.1 kB)
+Requirement already satisfied: asgiref<4,>=3.6.0 in d:\tops\20aug_hensi_python\projects\henv\lib\site-packages (from django==4.2) (3.10.0)
+Requirement already satisfied: sqlparse>=0.3.1 in d:\tops\20aug_hensi_python\projects\henv\lib\site-packages (from django==4.2) (0.5.3)
+Requirement already satisfied: tzdata in d:\tops\20aug_hensi_python\projects\henv\lib\site-packages (from django==4.2) (2025.2)
+Downloading Django-4.2-py3-none-any.whl (8.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 2.4 MB/s  0:00:03
+Installing collected packages: django
+  Attempting uninstall: django
+    Found existing installation: Django 5.2.8
+    Uninstalling Django-5.2.8:
+      Successfully uninstalled Django-5.2.8
+Successfully installed django-4.2
+
+(henv) D:\tops\20Aug_hensi_python\projects>django-admin --vsersion
+No Django settings specified.
+Unknown command: '--vsersion'
+Type 'django-admin help' for usage.
+
+(henv) D:\tops\20Aug_hensi_python\projects>django-admin --version
+4.2
+
+(henv) D:\tops\20Aug_hensi_python\projects>django startproject myproject
+'django' is not recognized as an internal or external command,
+operable program or batch file.
+
+(henv) D:\tops\20Aug_hensi_python\projects>django-admin startproject myproject
+
+(henv) D:\tops\20Aug_hensi_python\projects>cd myproject
+
+(henv) D:\tops\20Aug_hensi_python\projects\myproject>code .
+
+(henv) D:\tops\20Aug_hensi_python\projects\myproject>
