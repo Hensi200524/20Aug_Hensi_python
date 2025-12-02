@@ -1,0 +1,11 @@
+from django.contrib import admin
+from django.urls import path,include
+from myapp import views
+
+urlpatterns = [
+   path('',views.index),
+   path('about/',views.about,name  = ''),
+   path('showdata/',views.showdata,name = 'showdata'),
+   path('deletedata/<int:id>',views.deletedata,name="deletedata"),
+   path('updatedata/<int:id>',views.updatedata,name ="updatedata"),
+]
