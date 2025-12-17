@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 | Server Error</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-600 via-orange-600 to-yellow-500">
+
+    <div class="text-center text-white px-6">
+        
+        <!-- 500 Number -->
+        <h1 class="text-8xl md:text-9xl font-extrabold animate-float drop-shadow-lg">
+            500
+        </h1>
+
+        <!-- Message -->
+        <h2 class="mt-6 text-2xl md:text-3xl font-semibold">
+            Internal Server Error 🚧
+        </h2>
+
+        <p class="mt-4 text-lg text-gray-200 max-w-md mx-auto">
+            Something went wrong on our end.
+            Our team is already working to fix the issue.
+            Please try again later.
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="/"
+               class="bg-white text-red-600 px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition duration-300">
+                Go Home
+            </a>
+
+            <a href="javascript:location.reload()"
+               class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-red-600 transition duration-300">
+                Retry
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

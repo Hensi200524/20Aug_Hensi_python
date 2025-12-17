@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillSphere | Smart Learning Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 min-h-screen text-white">
+
+    <!-- Navbar Start -->
+    <nav class="flex justify-between items-center px-8 py-5">
+
+        <!-- Logo + Brand -->
+    <a href="/" class="flex items-center space-x-2">
+        <img src="/static/images/icon.png" alt="SkillSphere Logo" class="w-10 h-10">
+        <h1 class="text-3xl font-extrabold tracking-wide">SkillSphere</h1>
+    </a>
+
+        <div class="space-x-4">
+            <a href="/login"
+               class="px-5 py-2 rounded-lg border border-white hover:bg-white hover:text-purple-700 transition font-semibold">
+                Login
+            </a>
+            <a href="/signup"
+               class="px-5 py-2 rounded-lg bg-yellow-400 text-black hover:bg-yellow-300 transition font-semibold">
+                Sign Up
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-10 md:px-20 mt-16">
+
+        <!-- Text -->
+        <div class="md:w-1/2 space-y-6">
+            <h2 class="text-5xl font-extrabold leading-tight">
+                Learn New Skills <br>
+                <span class="text-yellow-300">Anytime, Anywhere</span>
+            </h2>
+
+            <p class="text-lg text-gray-100">
+                SkillSphere is a smart learning platform where students can explore courses,
+                enroll online, make secure payments, and track their progress easily.
+            </p>
+
+            <div class="space-x-4">
+                <a href="/signup"
+                   class="inline-block bg-yellow-400 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-300 transition">
+                    Get Started
+                </a>
+
+                <a href="/login"
+                   class="inline-block border-2 border-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-purple-700 transition">
+                    Login
+                </a>
+            </div>
+        </div>
+
+        <!-- Illustration -->
+        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+            <img src="/static/images/home_img.png"
+     alt="Learning Illustration"
+     class="w-72 md:w-80 drop-shadow-2xl">
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white text-gray-800 mt-24 rounded-t-[60px] px-10 py-16">
+
+        <h3 class="text-center text-4xl font-extrabold mb-12 text-purple-700">
+            Why Choose SkillSphere?
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+            <!-- Feature 1 -->
+            <div class="bg-gradient-to-br from-indigo-500 to-purple-500 text-white p-8 rounded-3xl shadow-xl hover:scale-105 transition">
+                <h4 class="text-2xl font-bold mb-3">Expert Courses</h4>
+                <p>
+                    Learn from industry experts with well-structured courses and real-world examples.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-gradient-to-br from-pink-500 to-rose-500 text-white p-8 rounded-3xl shadow-xl hover:scale-105 transition">
+                <h4 class="text-2xl font-bold mb-3">Secure Payments</h4>
+                <p>
+                    Easy and secure online payments using Stripe or Paytm integration.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-gradient-to-br from-yellow-400 to-orange-400 text-black p-8 rounded-3xl shadow-xl hover:scale-105 transition">
+                <h4 class="text-2xl font-bold mb-3">Progress Tracking</h4>
+                <p>
+                    Track your enrolled courses, learning progress, and achievements.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-sm text-gray-200">
+        © 2025 SkillSphere | Smart Learning Platform
+    </footer>
+
+</body>
+</html>

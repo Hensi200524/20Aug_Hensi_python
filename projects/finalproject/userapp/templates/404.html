@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Page Not Found</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
+
+    <div class="text-center text-white px-6">
+        
+        <!-- 404 Number -->
+        <h1 class="text-8xl md:text-9xl font-extrabold animate-float drop-shadow-lg">
+            404
+        </h1>
+
+        <!-- Message -->
+        <h2 class="mt-6 text-2xl md:text-3xl font-semibold">
+            Oops! Page Not Found 😕
+        </h2>
+
+        <p class="mt-4 text-lg text-gray-200 max-w-md mx-auto">
+            The page you’re looking for doesn’t exist or has been moved.
+            Don’t worry, let’s get you back on track.
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="/"
+               class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition duration-300">
+                Go Home
+            </a>
+
+            <a href="/contact"
+               class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
+                Contact Support
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

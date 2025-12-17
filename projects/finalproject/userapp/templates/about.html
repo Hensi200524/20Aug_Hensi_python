@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | NotesAPP</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-blue-100 min-h-screen">
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+
+        <!-- Brand -->
+        <a href="/" class="flex items-center gap-2">
+            <img src="/static/images/noteapp_icon.png" class="w-10 h-10">
+            <span class="text-white text-xl font-semibold tracking-wider">NotesAPP</span>
+        </a>
+
+        <!-- Menu -->
+        <div class="hidden md:flex space-x-8">
+            <a href="/" class="text-white hover:text-yellow-300">Home</a>
+            <a href="/notes" class="text-white hover:text-yellow-300">Notes</a>
+
+            {% if user %}
+            <a href="/profile" class="text-white hover:text-yellow-300">Profile</a>
+            {% endif %}
+
+            <a href="/about" class="text-white font-semibold hover:text-yellow-300">About</a>
+            <a href="/contact" class="text-white hover:text-yellow-300">Contact</a>
+        </div>
+
+        <!-- Right Buttons -->
+        <div class="flex items-center gap-3">
+
+            {% if user is none %}
+            <a href="/login"
+               class="bg-yellow-400 px-4 py-1.5 rounded-md font-semibold hover:bg-yellow-300 transition">
+               Login
+            </a>
+
+            <a href="/sign_up"
+               class="border-2 border-cyan-400 text-cyan-400 px-4 py-1.5 rounded-md font-semibold hover:bg-cyan-400 hover:text-black transition">
+               Sign Up
+            </a>
+
+            {% else %}
+
+            <div class="relative group">
+                <button class="border-2 border-white text-white px-4 py-1.5 rounded-md font-semibold">
+                    {{user}}
+                </button>
+
+                <div class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">                
+                    <a href="/profile" class="block px-4 py-2 hover:bg-gray-100">Update Profile</a>
+                    <a href="/userlogout" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- ================= HERO SECTION ================= -->
+<section class="max-w-7xl mx-auto px-6 mt-14 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Text -->
+    <div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-snug">
+            About <span class="text-blue-600">NotesAPP</span>
+        </h1>
+
+        <p class="mt-4 text-gray-700 text-lg">
+            NotesAPP is a simple, fast and elegant note-taking platform designed to help you stay organized,
+            productive, and creative. Whether you're a student, a professional, or someone who loves writing — 
+            NotesAPP keeps your ideas safe and accessible anywhere.
+        </p>
+    </div>
+
+    <!-- Image -->
+    <div class="flex justify-center">
+        <img src="/static/images/about.png"
+             class="w-80 drop-shadow-xl rounded-2xl">
+    </div>
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+<section class="max-w-7xl mx-auto px-6 mt-20">
+
+    <h2 class="text-3xl font-bold text-center text-gray-800">What We Offer</h2>
+
+    <div class="grid md:grid-cols-3 gap-10 mt-12">
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-blue-300 transition text-center">
+            <img src="/static/images/save.png" class="w-14 mx-auto">
+            <h3 class="text-xl font-semibold mt-4">Secure Notes</h3>
+            <p class="text-gray-600 mt-2">Your notes remain safe with encrypted storage.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-blue-300 transition text-center">
+            <img src="/static/images/speed.png" class="w-14 mx-auto">
+            <h3 class="text-xl font-semibold mt-4">Fast & Organized</h3>
+            <p class="text-gray-600 mt-2">Create, edit, and manage notes with ease.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-blue-300 transition text-center">
+            <img src="/static/images/cloud.png" class="w-14 mx-auto">
+            <h3 class="text-xl font-semibold mt-4">Cloud Access</h3>
+            <p class="text-gray-600 mt-2">View your notes anywhere from any device.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MISSION / VISION ================= -->
+<section class="max-w-7xl mx-auto px-6 mt-20 mb-20">
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-blue-300 transition">
+            <h3 class="text-2xl font-semibold text-blue-600">Our Mission</h3>
+            <p class="text-gray-700 mt-3 leading-relaxed">
+                To provide a clean, simple, and secure platform where people can store their thoughts, 
+                ideas, tasks, and important information effortlessly.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-blue-300 transition">
+            <h3 class="text-2xl font-semibold text-blue-600">Our Vision</h3>
+            <p class="text-gray-700 mt-3 leading-relaxed">
+                To become one of the most trusted note-taking solutions in the world,
+                empowering individuals to stay organized and productive every day.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================== FOOTER START=================== -->
+<footer class="bg-blue-600 mt-16 py-5">
+    <p class="text-center text-white font-medium">
+        © {{year}} NotesAPP — All Rights Reserved.
+    </p>
+</footer>
+<!-- ================== FOOTER END=================== -->
+
+
+
+</body>
+</html>

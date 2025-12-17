@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | NotesAPP</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-blue-100 min-h-screen">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+
+        <!-- Brand -->
+        <a href="/" class="flex items-center gap-2">
+            <img src="/static/images/noteapp_icon.png" class="w-10 h-10">
+            <span class="text-white text-xl font-semibold tracking-wider">NotesAPP</span>
+        </a>
+
+        <!-- Menu -->
+        <div class="hidden md:flex space-x-8">
+            <a href="/" class="text-white hover:text-yellow-300">Home</a>
+            <a href="/notes" class="text-white hover:text-yellow-300">Notes</a>
+
+            {% if user %}
+            <a href="/profile" class="text-white hover:text-yellow-300">Profile</a>
+            {% endif %}
+
+            <a href="/about" class="text-white hover:text-yellow-300">About</a>
+            <a href="/contact" class="text-white font-semibold hover:text-yellow-300">Contact</a>
+        </div>
+
+        <!-- Right Buttons -->
+        <div class="flex items-center gap-3">
+
+            {% if user is none %}
+            <a href="/login"
+               class="bg-yellow-400 px-4 py-1.5 rounded-md font-semibold hover:bg-yellow-300 transition">
+               Login
+            </a>
+
+            <a href="/sign_up"
+               class="border-2 border-cyan-400 text-cyan-400 px-4 py-1.5 rounded-md font-semibold hover:bg-cyan-400 hover:text-black transition">
+               Sign Up
+            </a>
+
+            {% else %}
+            <div class="relative group">
+                <button class="border-2 border-white text-white px-4 py-1.5 rounded-md font-semibold">
+                    {{user}}
+                </button>
+
+                <div class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">                   
+                    <a href="/profile" class="block px-4 py-2 hover:bg-gray-100">Update Profile</a>
+                    <a href="/userlogout" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- ================= CONTACT + MAP SECTION ================= -->
+<section class="max-w-7xl mx-auto px-6 mt-16 mb-20">
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+
+        <!-- ===== LEFT SIDE : CONTACT FORM ===== -->
+        <div class="bg-white p-10 rounded-3xl shadow-lg">
+
+            <h2 class="text-3xl font-semibold text-gray-800 text-center">
+                Get in Touch
+            </h2>
+            <p class="text-center text-gray-600 mt-2">
+                We usually reply within 24 hours.
+            </p>
+
+            <form action="" method="POST" class="mt-8 space-y-6">
+                {% csrf_token %}
+
+                <!-- Name -->
+                <div>
+                    <label class="block font-medium text-gray-700">Full Name</label>
+                    <input type="text" name="name"
+                        class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                        placeholder="Enter your name" required>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block font-medium text-gray-700">Email Address</label>
+                    <input type="email" name="email"
+                        class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                        placeholder="example@gmail.com" required>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label class="block font-medium text-gray-700">Message</label>
+                    <textarea name="message" rows="5"
+                        class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                        placeholder="Write your message..." required></textarea>
+                </div>
+
+                <!-- Button -->
+                <div class="text-center">
+                    <button
+                        class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-500 transition">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- ===== RIGHT SIDE : MAP + CONTACT INFO ===== -->
+        <div class="space-y-8">
+
+            <!-- Google Map -->
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+                <iframe
+                    src="https://www.google.com/maps?q=Ahmedabad,India&output=embed"
+                    class="w-full h-64 border-0"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="bg-white p-8 rounded-3xl shadow-lg">
+
+                <h3 class="text-2xl font-semibold text-gray-800 mb-5">
+                    Contact Information
+                </h3>
+
+                <div class="space-y-4 text-gray-700">
+
+                    <p class="flex items-center gap-3">
+                        📍 <span>Ahmedabad, Gujarat, India</span>
+                    </p>
+
+                    <p class="flex items-center gap-3">
+                        📧 <span>support@notesapp.com</span>
+                    </p>
+
+                    <p class="flex items-center gap-3">
+                        📞 <span>+91 97730 77345</span>
+                    </p>
+
+                </div>
+
+                <!-- Social Media -->
+                <div class="border-t mt-6 pt-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                        Follow Us
+                    </h4>
+
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/" class="w-11 h-11 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://x.com/" class="w-11 h-11 flex items-center justify-center rounded-full bg-sky-500 text-white hover:bg-sky-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/" class="w-11 h-11 flex items-center justify-center rounded-full bg-pink-600 text-white hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/" class="w-11 h-11 flex items-center justify-center rounded-full bg-blue-800 text-white hover:bg-blue-700 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+        <script>
+          var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":20,"marginLeft":20,"marginRight":20,"btnPosition":"right","whatsAppNumber":"919773077345","welcomeMessage":"Hello user,\nThank you for contacting NotesApp!  \nWe’ll get back to you shortly.","zIndex":999999,"btnColorScheme":"light"};
+          window.onload = () => {
+            _waEmbed(wa_btnSetting);
+          };
+</script>
+      
+
+<!-- ================== FOOTER START=================== -->
+<footer class="bg-blue-600 mt-16 py-5">
+    <p class="text-center text-white font-medium">
+        © {{year}} NotesAPP — All Rights Reserved.
+    </p>
+</footer>
+<!-- ================== FOOTER END=================== -->
+
+</body>
+</html>

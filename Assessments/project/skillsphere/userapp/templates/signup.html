@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | SkillSphere</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body{
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6f42c1, #d63384);
+    }
+
+    /* Card size improved */
+    .signup-card{
+        max-width: 520px;   /* pahodai vadhari */
+        width: 100%;
+        border-radius: 18px;
+        padding: 28px 32px; /* andar spacing balanced */
+    }
+
+    /* Input height reduced */
+    .form-control,
+    .form-select{
+        height: 44px;       /* pehla 50px hati */
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    .form-label{
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+
+    /* Button height reduced */
+    .btn-custom{
+        background: linear-gradient(90deg, #6f42c1, #d63384);
+        border: none;
+        height: 44px;       /* compact button */
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .btn-custom:hover{
+        opacity: 0.9;
+    }
+
+    /* Logo circle smaller */
+    .logo-circle{
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+</style>
+
+</head>
+
+<body class="d-flex align-items-center justify-content-center px-3">
+
+    <!-- Signup Card -->
+    <div class="card signup-card shadow-lg p-4">
+
+        <!-- Logo / Heading -->
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-primary mb-1">Create Account</h3>
+            <p class="text-muted small mb-3">Join SkillSphere & start learning</p>
+        </div>
+
+        <!-- Form -->
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Username</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+
+            <!-- Role -->
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Register As</label>
+                <select name="role" class="form-select">
+                    <option value="student">Student</option>
+                    <option value="instructor">Instructor</option>
+                </select>
+            </div>
+
+            <!-- Button -->
+            <button type="submit" class="btn btn-custom text-white w-100">
+                Sign Up
+            </button>
+        </form>
+
+        <!-- Login Link -->
+        <p class="text-center text-muted mt-4 mb-0">
+            Already have an account?
+            <a href="/login" class="text-primary fw-semibold text-decoration-none">
+                Login
+            </a>
+        </p>
+
+        <p class="text-center text-muted mt-3 mb-0">
+    Don’t want to sign up?
+    <a href="/" class="text-primary fw-semibold text-decoration-none">
+        Go to Home
+    </a>
+</p>
+
+    </div>
+
+</body>
+</html>
