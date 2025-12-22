@@ -5,113 +5,100 @@
     <title>SkillSphere | Smart Learning Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="/static/images/favicon.png">
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 min-h-screen text-white">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Navbar Start -->
-    <nav class="flex justify-between items-center px-8 py-5">
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-indigo-600">SkillSphere</h1>
+        <div class="space-x-6">
+    <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
 
-        <!-- Logo + Brand -->
-    <a href="/" class="flex items-center space-x-2">
-        <img src="/static/images/icon.png" alt="SkillSphere Logo" class="w-10 h-10">
-        <h1 class="text-3xl font-extrabold tracking-wide">SkillSphere</h1>
-    </a>
+    {% if user.is_authenticated %}
+        <a href="/courses" class="text-gray-700 hover:text-indigo-600">Courses</a>
+        <a href="/profile" class="text-gray-700 hover:text-indigo-600">Profile</a>
+        <a href="/logout" class="text-gray-700 hover:text-indigo-600">Logout</a>
+    {% else %}
+        <a href="/login" class="text-gray-700 hover:text-indigo-600">Login</a>
+        <a href="/signup" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Sign Up</a>
+    {% endif %}
+</div>
 
-        <div class="space-x-4">
-            <a href="/login"
-               class="px-5 py-2 rounded-lg border border-white hover:bg-white hover:text-purple-700 transition font-semibold">
-                Login
-            </a>
-            <a href="/signup"
-               class="px-5 py-2 rounded-lg bg-yellow-400 text-black hover:bg-yellow-300 transition font-semibold">
-                Sign Up
-            </a>
-        </div>
-    </nav>
-    <!-- Navbar End -->
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-10 md:px-20 mt-16">
+<!-- HERO SECTION -->
+<section class="bg-indigo-600 text-white">
+    <div class="transition duration-700 ease-in-out transform hover:scale-105">
 
-        <!-- Text -->
-        <div class="md:w-1/2 space-y-6">
-            <h2 class="text-5xl font-extrabold leading-tight">
-                Learn New Skills <br>
-                <span class="text-yellow-300">Anytime, Anywhere</span>
+    <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+            <h2 class="text-4xl font-bold mb-4">
+                Learn Skills. Build Career. Grow Faster.
             </h2>
-
-            <p class="text-lg text-gray-100">
-                SkillSphere is a smart learning platform where students can explore courses,
-                enroll online, make secure payments, and track their progress easily.
+            <p class="mb-6 text-lg">
+                SkillSphere helps you learn industry-ready skills with expert-led courses.
             </p>
+            <a href="/courses" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">
+                Browse Courses
+            </a>
+        </div>
+        <div>
+        <img src="/static/images/home_img.png"
+     alt="Learning"
+     class="w-full h-64 object-contain">       
+     </div>
+    </div>
+    </div>
+</section>
 
-            <div class="space-x-4">
-                <a href="/signup"
-                   class="inline-block bg-yellow-400 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-300 transition">
-                    Get Started
+<!-- FEATURED COURSES -->
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-10">Popular Courses</h3>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Course Card -->
+            <div class="bg-white shadow rounded-lg p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                <h4 class="text-xl font-semibold mb-2">Python Full Stack</h4>
+                <p class="text-gray-600 mb-4">Instructor: John Doe</p>
+                <p class="font-bold text-indigo-600 mb-4">₹12,000</p>
+                <a href="/course_detail" class="block text-center bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+                    View Details
                 </a>
+            </div>
 
-                <a href="/login"
-                   class="inline-block border-2 border-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-purple-700 transition">
-                    Login
+            <div class="bg-white shadow rounded-lg p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                <h4 class="text-xl font-semibold mb-2">Data Science</h4>
+                <p class="text-gray-600 mb-4">Instructor: Jane Smith</p>
+                <p class="font-bold text-indigo-600 mb-4">₹15,000</p>
+                <a href="/course_detail" class="block text-center bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+                    View Details
+                </a>
+            </div>
+
+            <div class="bg-white shadow rounded-lg p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                <h4 class="text-xl font-semibold mb-2">Web Development</h4>
+                <p class="text-gray-600 mb-4">Instructor: Alex Brown</p>
+                <p class="font-bold text-indigo-600 mb-4">₹10,000</p>
+                <a href="/course_detail" class="block text-center bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+                    View Details
                 </a>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Illustration -->
-        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-            <img src="/static/images/home_img.png"
-     alt="Learning Illustration"
-     class="w-72 md:w-80 drop-shadow-2xl">
-        </div>
-
-    </section>
-
-    <!-- Features Section -->
-    <section class="bg-white text-gray-800 mt-24 rounded-t-[60px] px-10 py-16">
-
-        <h3 class="text-center text-4xl font-extrabold mb-12 text-purple-700">
-            Why Choose SkillSphere?
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-            <!-- Feature 1 -->
-            <div class="bg-gradient-to-br from-indigo-500 to-purple-500 text-white p-8 rounded-3xl shadow-xl hover:scale-105 transition">
-                <h4 class="text-2xl font-bold mb-3">Expert Courses</h4>
-                <p>
-                    Learn from industry experts with well-structured courses and real-world examples.
-                </p>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="bg-gradient-to-br from-pink-500 to-rose-500 text-white p-8 rounded-3xl shadow-xl hover:scale-105 transition">
-                <h4 class="text-2xl font-bold mb-3">Secure Payments</h4>
-                <p>
-                    Easy and secure online payments using Stripe or Paytm integration.
-                </p>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="bg-gradient-to-br from-yellow-400 to-orange-400 text-black p-8 rounded-3xl shadow-xl hover:scale-105 transition">
-                <h4 class="text-2xl font-bold mb-3">Progress Tracking</h4>
-                <p>
-                    Track your enrolled courses, learning progress, and achievements.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 text-sm text-gray-200">
-        © 2025 SkillSphere | Smart Learning Platform
-    </footer>
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-gray-300 py-6">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <p>© 2025 SkillSphere. All Rights Reserved.</p>
+    </div>
+</footer>
 
 </body>
 </html>
