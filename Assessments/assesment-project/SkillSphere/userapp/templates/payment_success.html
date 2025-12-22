@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Success | SkillSphere</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-tr from-green-100 via-green-200 to-green-300 min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg p-8 sm:p-10 text-center animate-fadeIn">
+
+    <!-- Success Icon -->
+    <div class="flex justify-center mb-4">
+      <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-700 mb-4">
+      🎉 Payment Successful
+    </h1>
+
+    <!-- Description -->
+    <p class="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
+      You are successfully enrolled in <br>
+      <strong class="text-purple-600">{{ course.title }}</strong>
+    </p>
+
+    <!-- Button -->
+    <a href="{% url 'my_courses' %}">
+      <button class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-2xl font-semibold shadow-lg transition transform hover:-translate-y-1">
+        Go To My Courses
+      </button>
+    </a>
+
+  </div>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 0.7s ease-out forwards; }
+  </style>
+
+</body>
+</html>

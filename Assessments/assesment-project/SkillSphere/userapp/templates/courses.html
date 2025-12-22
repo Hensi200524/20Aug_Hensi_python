@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Courses | SkillSphere</title>
+
+  <!-- Important for Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-tr from-purple-50 via-pink-50 to-amber-50 min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-purple-700">
+        SkillSphere Courses
+      </h1>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="/" class="text-gray-700 hover:text-purple-700 font-medium transition">Home</a>
+        <a href="/user_profile" class="text-gray-700 hover:text-purple-700 font-medium transition">Profile</a>
+        <a href="/user_logout" class="text-gray-700 hover:text-red-600 font-medium transition">Logout</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-purple-700 text-3xl">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow">
+      <a href="/" class="block px-6 py-3 text-gray-700 hover:bg-purple-100">Home</a>
+      <a href="/user_profile" class="block px-6 py-3 text-gray-700 hover:bg-purple-100">Profile</a>
+      <a href="/user_logout" class="block px-6 py-3 text-gray-700 hover:bg-red-100">Logout</a>
+    </div>
+  </header>
+
+
+  <!-- Page Title -->
+  <section class="text-center mt-6 mb-6 px-4">
+    <h2 class="text-xl sm:text-2xl font-bold text-gray-700">
+      Explore Our Best Learning Programs
+    </h2>
+    <p class="text-gray-500">Choose the right course and boost your skills</p>
+  </section>
+
+
+  <!-- Courses Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10
+              grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7">
+
+    {% for course in courses %}
+
+    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden
+                hover:shadow-2xl hover:-translate-y-1 transition duration-300">
+
+      <!-- Fee Tag -->
+      <span class="absolute top-3 right-3 bg-purple-600 text-white text-sm px-3 py-1 rounded-full">
+        ₹{{ course.fee }}
+      </span>
+
+      <!-- Category -->
+      <span class="absolute top-3 left-3 bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full">
+        {{ course.category|title }}
+      </span>
+
+      <!-- Preview -->
+      <div class="bg-gray-200 h-32 sm:h-40 flex items-center justify-center px-2 text-center">
+        {% if course.video_preview %}
+          <a href="{{ course.video_preview }}" target="_blank"
+             class="text-blue-600 font-semibold hover:underline">
+             Watch Preview
+          </a>
+        {% else %}
+          <span class="text-gray-500 font-medium">
+            No Preview Available
+          </span>
+        {% endif %}
+      </div>
+
+      <!-- Details -->
+      <div class="p-5">
+        <h2 class="text-lg sm:text-xl font-bold text-purple-700 mb-1">
+          {{ course.title }}
+        </h2>
+
+        <p class="text-gray-600 mb-1">
+          <span class="font-semibold">Instructor:</span> {{ course.instructor }}
+        </p>
+
+        <p class="text-gray-600 mb-1">
+          <span class="font-semibold">Duration:</span> {{ course.duration }}
+        </p>
+
+        <a href="{% url 'course_detail' course.id %}"
+           class="mt-4 block bg-purple-600 hover:bg-purple-700 
+                  text-white text-center py-2 rounded-lg font-medium transition">
+          View Details
+        </a>
+      </div>
+    </div>
+
+    {% empty %}
+      <p class="col-span-full text-center text-gray-500 font-medium mt-10">
+        No courses available at the moment.
+      </p>
+    {% endfor %}
+  </div>
+
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.getElementById("menuBtn").onclick = () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    };
+  </script>
+
+</body>
+</html>

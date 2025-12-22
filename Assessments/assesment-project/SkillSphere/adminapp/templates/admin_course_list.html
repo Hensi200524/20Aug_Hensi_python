@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Admin | Manage Courses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+           class="w-64 bg-gray-900 text-white shadow-2xl fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-300 z-50">
+
+        <div class="text-3xl font-extrabold p-6 border-b border-gray-700 flex justify-between items-center">
+            Admin Panel
+            <button onclick="toggleMenu()" class="md:hidden text-white text-2xl">&times;</button>
+        </div>
+
+        <nav class="flex flex-col p-5 space-y-3 text-lg font-medium">
+            <a href="/adminapp/admin_dashboard"
+               class="p-3 rounded-lg hover:bg-gray-700 transition">
+               Dashboard
+            </a>
+
+            <a class="p-3 rounded-lg bg-gray-700">
+               Courses
+            </a>
+
+            <a href="/adminapp/admin_logout"
+               class="p-3 rounded-lg hover:bg-gray-700 transition">
+               Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay"
+         class="hidden fixed inset-0 bg-black/50 z-40 md:hidden"
+         onclick="toggleMenu()">
+    </div>
+
+    <!-- Main -->
+    <main class="flex-1 p-4 md:p-8 md:ml-0 ml-0 w-full">
+
+        <!-- Mobile Top Bar -->
+        <button onclick="toggleMenu()"
+                class="md:hidden px-4 py-2 mb-4 bg-gray-900 text-white rounded-lg shadow-lg">
+            ☰ Menu
+        </button>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+            📚 Manage Courses
+        </h1>
+
+        <p class="text-white/80 mb-6">
+            View, filter and manage all courses here.
+        </p>
+
+        <!-- Add Course -->
+        <a href="/adminapp/admin_course_form"
+           class="inline-block mb-6 px-5 py-3 rounded-xl text-white font-semibold
+           bg-gradient-to-r from-green-400 to-green-600 shadow-lg hover:scale-105 transition">
+           ➕ Add New Course
+        </a>
+
+        <!-- Filter Bar -->
+        <form method="GET"
+              class="bg-white/20 backdrop-blur-lg p-5 rounded-2xl shadow-xl mb-6 text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+
+            <input class="px-3 py-2 rounded-lg text-black" name="search"
+                   value="{{ request.GET.search }}" placeholder="Search Course...">
+
+            <select class="px-3 py-2 rounded-lg text-black" name="category">
+                <option value="">All Categories</option>
+                <option value="programming">Programming</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+            </select>
+
+            <input class="px-3 py-2 rounded-lg text-black" name="duration"
+                   placeholder="Duration">
+
+            <input class="px-3 py-2 rounded-lg text-black" name="min_fee"
+                   placeholder="Min Fee">
+
+            <input class="px-3 py-2 rounded-lg text-black" name="max_fee"
+                   placeholder="Max Fee">
+
+            <button
+                class="col-span-full mt-2 w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg shadow-lg font-bold">
+                Apply Filters
+            </button>
+        </form>
+
+        <!-- Courses Table -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+                <thead class="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm md:text-lg">
+                <tr>
+                    <th class="py-3 px-4 text-left">Title</th>
+                    <th class="py-3 px-4 text-left">Instructor</th>
+                    <th class="py-3 px-4 text-left">Category</th>
+                    <th class="py-3 px-4 text-left">Fee</th>
+                    <th class="py-3 px-4 text-left">Duration</th>
+                    <th class="py-3 px-4 text-left">Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for course in courses %}
+                <tr class="border-b hover:bg-gray-100 transition">
+                    <td class="py-2 px-4 font-semibold">{{ course.title }}</td>
+                    <td class="py-2 px-4">{{ course.instructor }}</td>
+                    <td class="py-2 px-4">{{ course.category }}</td>
+                    <td class="py-2 px-4">₹{{ course.fee }}</td>
+                    <td class="py-2 px-4">{{ course.duration }}</td>
+
+                    <td class="py-2 px-4 space-x-2 whitespace-nowrap">
+                        <a href="/adminapp/edit_course/{{ course.id }}/"
+                           class="px-3 py-1 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-white shadow">
+                           Edit
+                        </a>
+
+                        <a href="/adminapp/delete_course/{{ course.id }}/"
+                           onclick="return confirm('Are you sure?')"
+                           class="px-3 py-1 rounded-lg bg-red-600 hover:bg-red-700 text-white shadow">
+                           Delete
+                        </a>
+                    </td>
+                </tr>
+
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-6 text-gray-500">
+                        No Courses Found
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  sidebar.classList.toggle("-translate-x-full");
+  overlay.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

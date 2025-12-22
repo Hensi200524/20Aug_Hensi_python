@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard | SkillSphere</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-tr from-indigo-100 via-purple-100 to-pink-100 min-h-screen p-6 md:p-10 font-sans">
+
+<!-- Header -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-purple-700 drop-shadow-sm">
+        🎓 Student Dashboard
+    </h1>
+
+    <a href="{% url 'user_logout' %}"
+       class="bg-red-600 hover:bg-red-700 text-white px-7 py-3 rounded-2xl shadow-xl font-semibold transition transform hover:-translate-y-1">
+       Logout
+    </a>
+</div>
+
+<!-- Welcome Card -->
+<div class="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 mb-12 text-center md:text-left border border-purple-200">
+    <h2 class="text-3xl font-bold text-indigo-700">
+        Welcome, {{ student.name }} 👋
+    </h2>
+    <p class="text-gray-600 mt-3 text-lg">
+        Manage your courses, profile, and learning progress from here.
+    </p>
+</div>
+
+<!-- Dashboard Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <!-- My Courses -->
+    <a href="{% url 'my_courses' %}" 
+       class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition transform border border-indigo-200">
+        <div class="flex items-center gap-4">
+            <span class="text-4xl">📚</span>
+            <h3 class="text-2xl font-bold text-indigo-700">My Courses</h3>
+        </div>
+        <p class="text-gray-600 mt-3">View all your enrolled courses</p>
+    </a>
+
+    <!-- Profile -->
+    <a href="{% url 'user_profile' %}" 
+       class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition transform border border-green-200">
+        <div class="flex items-center gap-4">
+            <span class="text-4xl">👤</span>
+            <h3 class="text-2xl font-bold text-green-700">Profile</h3>
+        </div>
+        <p class="text-gray-600 mt-3">View or update your profile details</p>
+    </a>
+
+    <!-- Browse Courses -->
+    <a href="{% url 'courses' %}" 
+       class="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition transform border border-pink-200">
+        <div class="flex items-center gap-4">
+            <span class="text-4xl">🛒</span>
+            <h3 class="text-2xl font-bold text-pink-700">Browse Courses</h3>
+        </div>
+        <p class="text-gray-600 mt-3">Explore and enroll in new courses</p>
+    </a>
+
+</div>
+
+<!-- Small Fade Animation -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  body { animation: fadeIn .5s ease-in-out; }
+</style>
+
+</body>
+</html>

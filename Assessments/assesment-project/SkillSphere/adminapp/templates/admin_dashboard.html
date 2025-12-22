@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+.card-hover { transition: all .4s ease; }
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,.2);
+}
+</style>
+
+</head>
+
+<body class="min-h-screen font-sans bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="w-64 bg-gray-900 text-white shadow-2xl fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-300 z-50">
+
+        <div class="text-3xl font-extrabold p-6 border-b border-gray-700 flex justify-between items-center">
+            Admin Panel
+            <button onclick="toggleMenu()" class="md:hidden text-white text-2xl">&times;</button>
+        </div>
+
+        <nav class="flex flex-col p-5 space-y-3 text-lg font-medium">
+            <a class="bg-gray-700 p-3 rounded-lg shadow-lg">
+                Dashboard
+            </a>
+
+            <a href="/adminapp/admin_course_list"
+               class="p-3 rounded-lg hover:bg-gray-700 transition">
+               Courses
+            </a>
+
+            <a href="/adminapp/admin_logout"
+               class="p-3 rounded-lg hover:bg-gray-700 transition">
+               Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Overlay (mobile) -->
+    <div id="overlay"
+         class="hidden fixed inset-0 bg-black/50 z-40 md:hidden"
+         onclick="toggleMenu()">
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 md:p-10">
+
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMenu()"
+            class="md:hidden px-4 py-2 mb-4 bg-gray-900 text-white rounded-lg shadow-lg">
+            ☰ Menu
+        </button>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow mb-2">
+            📊 Admin Dashboard
+        </h1>
+
+        <p class="text-white/80 mb-8">
+            Overview of platform statistics
+        </p>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+            <div class="card-hover bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-2xl shadow-xl">
+                <h2 class="text-xl font-semibold">Total Courses</h2>
+                <p class="text-5xl font-extrabold mt-3">{{ total_courses }}</p>
+                <p class="mt-2 text-white/80">Available courses</p>
+            </div>
+
+            <div class="card-hover bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-2xl shadow-xl">
+                <h2 class="text-xl font-semibold">Total Students</h2>
+                <p class="text-5xl font-extrabold mt-3">{{ total_students }}</p>
+                <p class="mt-2 text-white/80">Registered learners</p>
+            </div>
+
+            <div class="card-hover bg-gradient-to-r from-green-500 to-teal-500 text-white p-6 rounded-2xl shadow-xl">
+                <h2 class="text-xl font-semibold">Total Enrollments</h2>
+                <p class="text-5xl font-extrabold mt-3">{{ total_enrollments }}</p>
+                <p class="mt-2 text-white/80">Active enrollments</p>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  sidebar.classList.toggle("-translate-x-full");
+  overlay.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

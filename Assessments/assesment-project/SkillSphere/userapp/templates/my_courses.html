@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Courses | SkillSphere</title>
+
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-tr from-indigo-100 via-purple-100 to-pink-100 min-h-screen p-4 md:p-6">
+
+<!-- Page Title -->
+<section class="text-center mb-10">
+  <h1 class="text-3xl md:text-5xl font-extrabold text-purple-700 mb-3">
+    🎓 My Enrolled Courses
+  </h1>
+
+  <p class="text-gray-700 text-base md:text-lg">
+    Keep learning and track all your courses in one place
+  </p>
+</section>
+
+<!-- Navigation Buttons -->
+<div class="flex justify-center gap-4 md:gap-6 mb-10 flex-wrap">
+    <a href="{% url 'student_dashboard' %}"
+       class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold 
+              px-5 md:px-6 py-3 rounded-2xl shadow-lg transition transform hover:-translate-y-1">
+       Student Dashboard
+    </a>
+
+    <a href="{% url 'home' %}"
+       class="bg-green-600 hover:bg-green-700 text-white font-semibold 
+              px-5 md:px-6 py-3 rounded-2xl shadow-lg transition transform hover:-translate-y-1">
+       Home
+    </a>
+</div>
+
+<!-- Courses Grid -->
+<div class="max-w-7xl mx-auto grid 
+            grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+            gap-6 md:gap-8">
+
+{% for e in enrollments %}
+  <div class="bg-white rounded-3xl shadow-xl p-6 
+              flex flex-col justify-between 
+              hover:scale-105 transition transform">
+
+      <!-- Course Info -->
+      <div>
+          <h2 class="text-xl md:text-2xl font-bold text-indigo-600 mb-2">
+              {{ e.course.title }}
+          </h2>
+
+          <p class="text-gray-600 mb-1 text-sm md:text-base">
+              <span class="font-semibold">Instructor:</span> {{ e.course.instructor }}
+          </p>
+
+          <p class="text-gray-700 mb-1 text-sm md:text-base">
+              <span class="font-semibold">Duration:</span> {{ e.course.duration }}
+          </p>
+
+          <p class="text-gray-700 mb-3 text-sm md:text-base">
+              <span class="font-semibold">Fee:</span> ₹{{ e.course.fee }}
+          </p>
+      </div>
+
+      <!-- Action Button -->
+      <a href="{% url 'course_detail' e.course.id %}" 
+         class="mt-3 block text-center bg-purple-600 hover:bg-purple-700 
+                text-white font-semibold py-2 rounded-xl shadow-lg 
+                transition transform hover:-translate-y-1">
+         View Course
+      </a>
+  </div>
+
+{% empty %}
+  <p class="col-span-full text-center text-gray-500 font-medium mt-10">
+    You haven't enrolled in any courses yet.
+  </p>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile | SkillSphere</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-tr from-purple-100 via-pink-100 to-yellow-100 min-h-screen flex items-center justify-center p-6">
+
+<div class="bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl w-full max-w-3xl p-10 border border-purple-200">
+
+  <!-- Title -->
+  <h1 class="text-4xl font-extrabold text-purple-700 text-center mb-8 drop-shadow-sm">
+      👤 User Profile
+  </h1>
+
+  <!-- Avatar -->
+  <div class="flex justify-center mb-8">
+      {% if user.avatar %}
+          <img src="{{ user.avatar.url }}" 
+               class="w-36 h-36 rounded-full border-4 border-purple-400 shadow-xl hover:scale-105 transition">
+      {% else %}
+          <div class="w-36 h-36 rounded-full bg-gray-300 flex items-center justify-center 
+                      text-5xl text-gray-600 border-4 border-purple-300 shadow-lg">
+              ?
+          </div>
+      {% endif %}
+  </div>
+
+  <!-- Profile Form -->
+  <form method="POST" enctype="multipart/form-data" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div>
+          <label class="font-semibold text-gray-700 mb-1 block">Username</label>
+          <input type="text" name="username" value="{{ user.username }}"
+              class="w-full px-5 py-3 border rounded-xl shadow-sm 
+                     focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition">
+      </div>
+
+      <!-- Email -->
+      <div>
+          <label class="font-semibold text-gray-700 mb-1 block">Email</label>
+          <input type="email" name="email" value="{{ user.email }}"
+              class="w-full px-5 py-3 border rounded-xl shadow-sm 
+                     focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition">
+      </div>
+
+      <!-- Avatar Upload -->
+      <div>
+          <label class="font-semibold text-gray-700 mb-1 block">Change Avatar</label>
+          <input type="file" name="avatar"
+              class="w-full px-4 py-3 border rounded-xl shadow-sm cursor-pointer 
+                     focus:ring-2 focus:ring-purple-400">
+      </div>
+
+      <!-- Update Button -->
+      <button
+          class="w-full bg-gradient-to-r from-purple-600 to-pink-600 
+                 hover:from-pink-600 hover:to-purple-600 text-white py-3 
+                 rounded-xl font-bold shadow-xl transition">
+          Update Profile
+      </button>
+  </form>
+
+  <!-- Back Button -->
+  <div class="text-center mt-8">
+      <a href="{% url 'courses' %}" 
+         class="text-purple-700 font-semibold hover:text-pink-600 hover:underline transition">
+          ⬅ Back to Courses
+      </a>
+  </div>
+
+</div>
+
+<!-- Soft Page Animation -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  body { animation: fadeIn .6s ease-in-out; }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSphere - Smart Learning Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+
+  <!-- Navbar -->
+  <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+      <h1 class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+        SkillSphere
+      </h1>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="/courses" class="hover:text-blue-600">Courses</a>
+        <a href="#features" class="hover:text-blue-600">About</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+
+      <!-- Buttons -->
+      <div class="hidden md:block space-x-3">
+        <a href="/login" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition">
+          Login
+        </a>
+        <a href="/signup" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+          Signup
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMenu()" class="md:hidden text-3xl text-gray-700">
+        ☰
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Home</a>
+      <a href="/courses" class="block text-gray-700 hover:text-blue-600">Courses</a>
+      <a href="#features" class="block text-gray-700 hover:text-blue-600">About</a>
+      <a href="#contact" class="block text-gray-700 hover:text-blue-600">Contact</a>
+
+      <div class="pt-3 space-x-2">
+        <a href="/login" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md">
+          Login
+        </a>
+        <a href="/signup" class="px-4 py-2 bg-blue-600 text-white rounded-md">
+          Signup
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+      <div class="text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+          Learn Skills That Shape Your Bright Future 🌟
+        </h2>
+        <p class="mt-4 text-base md:text-lg text-gray-200">
+          Smart learning platform with smooth experience, expert mentors & powerful tools.
+        </p>
+
+        <div class="mt-6 space-x-3">
+          <a href="/courses/" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+            Browse Courses
+          </a>
+          <a href="/signup/" class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+            Get Started
+          </a>
+        </div>
+      </div>
+
+      <img src="https://cdn-icons-png.flaticon.com/512/584/584796.png"
+           class="w-64 md:w-96 mx-auto drop-shadow-2xl rounded-2xl">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-14 md:py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-700">Why Choose SkillSphere?</h2>
+      <p class="text-center text-gray-600 mt-2">
+        Smart features that make online learning powerful, simple & enjoyable.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow hover:shadow-xl transition border border-blue-100 text-center">
+          <span class="text-3xl">⚡</span>
+          <h3 class="text-xl font-semibold mt-2 text-blue-600">Easy Enrollment</h3>
+          <p class="text-gray-600 mt-2">Register & enroll in seconds.</p>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow hover:shadow-xl transition border border-pink-100 text-center">
+          <span class="text-3xl">💳</span>
+          <h3 class="text-xl font-semibold mt-2 text-pink-600">Secure Payments</h3>
+          <p class="text-gray-600 mt-2">Safe transactions guaranteed.</p>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow hover:shadow-xl transition border border-green-100 text-center">
+          <span class="text-3xl">📊</span>
+          <h3 class="text-xl font-semibold mt-2 text-green-600">Progress Tracking</h3>
+          <p class="text-gray-600 mt-2">Track your learning journey.</p>
+        </div>
+
+        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow hover:shadow-xl transition border border-purple-100 text-center">
+          <span class="text-3xl">🛠️</span>
+          <h3 class="text-xl font-semibold mt-2 text-purple-600">Admin Panel</h3>
+          <p class="text-gray-600 mt-2">Manage students & courses easily.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-700">
+        A Platform Loved By Learners ❤️
+      </h2>
+      <p class="text-gray-600 mt-2">Helping students grow faster & smarter</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+
+        <div class="p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg border border-blue-200">
+          <h3 class="text-4xl font-extrabold text-blue-700">10K+</h3>
+          <p class="text-gray-700 font-medium mt-2">Active Students</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl shadow-lg border border-pink-200">
+          <h3 class="text-4xl font-extrabold text-pink-700">150+</h3>
+          <p class="text-gray-700 font-medium mt-2">Expert Mentors</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-lg border border-green-200">
+          <h3 class="text-4xl font-extrabold text-green-700">500+</h3>
+          <p class="text-gray-700 font-medium mt-2">Successful Careers</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 text-white py-8 mt-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div>
+        <h3 class="text-xl font-semibold">SkillSphere</h3>
+        <p class="text-gray-400 mt-2">
+          Smart Learning Platform For Modern Students
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Quick Links</h3>
+        <ul class="text-gray-400 mt-2 space-y-1">
+          <li>Home</li>
+          <li>Courses</li>
+          <li>Dashboard</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Contact</h3>
+        <p class="text-gray-400 mt-2">support@skillsphere.com</p>
+        <p class="text-gray-400">+91 98765 43210</p>
+      </div>
+
+    </div>
+
+    <p class="text-center text-gray-500 mt-6">
+      © 2025 SkillSphere. All Rights Reserved.
+    </p>
+  </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
