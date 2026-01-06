@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | SocietyHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='65' font-size='55' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+
+<style>
+.bg-animated {
+  background: linear-gradient(-45deg, #7c3aed, #ec4899, #f59e0b, #2563eb);
+  background-size: 400% 400%;
+  animation: change 10s infinite ease-in-out;
+}
+@keyframes change {
+  0% {background-position: 0 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0 50%;}
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-animated">
+<div class="min-h-screen bg-white/20 backdrop-blur-lg flex flex-col">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-6 md:px-10 py-4 bg-white/40 backdrop-blur-lg shadow-lg">
+  <h1 class="text-3xl font-extrabold text-purple-700">🏡 SocietyHub</h1>
+
+  <ul class="hidden md:flex gap-6 text-gray-700 font-medium">
+    <li><a href="/" class="hover:text-purple-700 transition">Home</a></li>
+    <li><a href="/about" class="hover:text-purple-700 transition">About</a></li>
+    <li><a href="#" class="text-purple-700 font-semibold">Contact</a></li>
+  </ul>
+
+  <a href="/login"
+     class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg shadow">
+     Login
+  </a>
+</nav>
+
+<!-- TITLE -->
+<section class="text-center py-16 px-6">
+  <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 drop-shadow">
+    Contact <span class="text-purple-700">Us</span>
+  </h2>
+  <p class="mt-4 text-gray-700 text-lg max-w-3xl mx-auto">
+    We’d love to hear from you. Reach out anytime for support or inquiries.
+  </p>
+</section>
+
+<!-- CONTENT -->
+<section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 px-6 pb-16">
+
+  <!-- CONTACT INFO -->
+  <div class="bg-white/80 rounded-2xl shadow-xl p-8 border border-pink-300">
+    <h3 class="text-3xl font-bold text-pink-700 mb-6">📞 Contact Information</h3>
+
+    <div class="space-y-4 text-gray-700 text-lg">
+      <p>🏠 <b>Address:</b> SocietyHub Office, Ahmedabad, Gujarat</p>
+      <p>📧 <b>Email:</b> support@societyhub.com</p>
+      <p>📞 <b>Phone:</b> +91 99999 88888</p>
+      <p>🕒 <b>Working Hours:</b> Mon – Sat | 9:00 AM – 7:00 PM</p>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="mt-8">
+      <h4 class="text-2xl font-semibold text-gray-800 mb-4">🌐 Follow Us</h4>
+      <div class="flex gap-4 flex-wrap">
+        <a href="https://www.facebook.com/societyhub" target="_blank" class="px-5 py-2 bg-purple-600 text-white rounded-lg shadow">Facebook</a>
+        <a href="https://www.instagram.com/societyhub" target="_blank" class="px-5 py-2 bg-pink-600 text-white rounded-lg shadow">Instagram</a>
+        <a href="https://twitter.com/societyhub" target="_blank" class="px-5 py-2 bg-blue-600 text-white rounded-lg shadow">Twitter</a>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="mt-8">
+      <h4 class="text-2xl font-semibold text-gray-800 mb-3">📍 Location</h4>
+      <div class="rounded-2xl overflow-hidden shadow border">
+        <iframe
+          src="https://www.google.com/maps?q=ahmedabad&output=embed"
+          width="100%"
+          height="260"
+          style="border:0;"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="bg-white/80 rounded-2xl shadow-xl p-8 border border-purple-300">
+    <h3 class="text-3xl font-bold text-purple-700 mb-6">📩 Send a Message</h3>
+
+    {% for message in messages %}
+      <p class="text-green-700 font-semibold mb-3">{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+
+      <input name="name" type="text" placeholder="Full Name"
+             class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none">
+
+      <input name="email" type="email" placeholder="Email Address"
+             class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none">
+
+      <textarea name="message" rows="6" placeholder="Your Message"
+                class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none"></textarea>
+
+      <button
+        class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg shadow-lg transition">
+        Send Message
+      </button>
+    </form>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white/30 backdrop-blur-lg py-6 text-center mt-auto">
+  <p class="text-gray-800 font-semibold">Made with ❤️ for Better Living</p>
+  <p class="text-gray-600 text-sm">© 2026 SocietyHub. All Rights Reserved.</p>
+</footer>
+
+</div>
+
+<!-- WHATSAPP CHAT BUTTON -->
+<a href="https://wa.me/919773077345?text=Hello%20SocietyHub%20Support"
+   target="_blank"
+   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50">
+   💬
+</a>
+
+</body>
+</html>

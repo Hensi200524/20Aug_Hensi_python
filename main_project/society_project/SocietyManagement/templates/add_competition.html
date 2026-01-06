@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Competition | SocietyHub Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='65' font-size='55' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-tr from-purple-600 via-pink-500 to-indigo-600">
+
+<div class="min-h-screen bg-black/40 flex items-center justify-center">
+
+<div class="bg-white/90 w-full max-w-4xl rounded-2xl shadow-2xl p-8">
+
+<h1 class="text-3xl font-extrabold text-purple-700 mb-6">
+🏆 Add New Competition
+</h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div>
+        <label class="font-semibold">Competition Title</label>
+        <input type="text" name="title" class="w-full mt-2 p-3 rounded-xl border">
+    </div>
+
+    <div>
+        <label class="font-semibold">Date</label>
+        <input type="date" name="date" class="w-full mt-2 p-3 rounded-xl border">
+    </div>
+
+    <div>
+        <label class="font-semibold">Time</label>
+        <input type="time" name="time" class="w-full mt-2 p-3 rounded-xl border">
+    </div>
+
+    <div>
+        <label class="font-semibold">Location</label>
+        <input type="text" name="location" class="w-full mt-2 p-3 rounded-xl border">
+    </div>
+
+</div>
+
+<div class="mt-6">
+    <label class="font-semibold">Description</label>
+    <textarea name="description" rows="4"
+              class="w-full mt-2 p-3 rounded-xl border"></textarea>
+</div>
+
+<div class="flex justify-between mt-8">
+    <a href="{% url 'admin_competition_list' %}"
+       class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-3 rounded-xl">
+       ⬅ Back
+    </a>
+
+    <button type="submit"
+            class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl font-semibold">
+        ✔ Save Competition
+    </button>
+</div>
+
+</form>
+</div>
+</div>
+</body>
+</html>

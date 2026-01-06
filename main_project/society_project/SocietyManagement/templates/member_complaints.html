@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Complaints | SocietyHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='65' font-size='55' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-tr from-purple-200 via-pink-100 to-yellow-100">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-8 py-4 bg-white shadow-lg">
+    <h1 class="text-3xl font-extrabold text-purple-700">⚠ Member Complaints</h1>
+
+    <a href="{% url 'member_dashboard' %}"
+       class="bg-gray-700 hover:bg-black text-white px-5 py-2 rounded-lg shadow">
+       ⬅ Back to Dashboard
+    </a>
+</nav>
+
+<div class="max-w-6xl mx-auto p-8">
+
+    <!-- HEADER -->
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h2 class="text-4xl font-extrabold text-purple-700 drop-shadow">
+                Raise & Track Complaints
+            </h2>
+            <p class="text-gray-700">Submit complaints & check status anytime</p>
+        </div>
+
+        <!-- BUTTON -->
+        <a href="{% url 'add_complaint' %}"
+           class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg shadow-lg font-semibold">
+           ➕ Add New Complaint
+        </a>
+    </div>
+
+    <!-- HISTORY CARD -->
+    <div class="bg-white rounded-2xl shadow-2xl border border-purple-300 overflow-hidden">
+
+        <h3 class="bg-purple-700 text-white text-lg px-6 py-3 font-semibold">
+            📜 Complaint History
+        </h3>
+
+        <table class="min-w-full text-center">
+            <thead class="bg-purple-100 text-gray-800">
+                <tr>
+                    <th class="px-4 py-3">Complaint Title</th>
+                    <th class="px-4 py-3">Description</th>
+                    <th class="px-4 py-3">Date</th>
+                    <th class="px-4 py-3">Status</th>
+                    <th class="px-4 py-3">Admin Reply</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for c in complaints %}
+            <tr class="border-b hover:bg-purple-50 transition">
+
+                <td class="px-4 py-3 font-semibold text-gray-800">
+                    {{ c.title }}
+                </td>
+
+                <td class="px-4 py-3 text-gray-700">
+                    {{ c.description }}
+                </td>
+
+                <td class="px-4 py-3 text-gray-700">
+                    {{ c.created_at }}
+                </td>
+
+                <!-- STATUS BADGES -->
+                <td class="px-4 py-3">
+                    {% if c.status == "Pending" %}
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full">Pending</span>
+
+                    {% elif c.status == "In Progress" %}
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full">
+                        In Progress
+                        </span>
+
+                    {% else %}
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full">
+                        Solved
+                        </span>
+                    {% endif %}
+                </td>
+
+                <td class="px-4 py-3 text-gray-700">
+                    {% if c.admin_reply %}
+                        {{ c.admin_reply }}
+                    {% else %}
+                        --
+                    {% endif %}
+                </td>
+
+            </tr>
+
+            {% empty %}
+            <tr>
+                <td colspan="5" class="px-4 py-6 text-lg text-gray-700">
+                    😕 No Complaints Found
+                </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

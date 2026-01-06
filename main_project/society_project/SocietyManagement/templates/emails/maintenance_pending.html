@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Maintenance Pending</title>
+
+<style>
+.container{
+    max-width:600px;
+    margin:auto;
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    font-family:Arial;
+}
+.header{
+    text-align:center;
+    background:#4F46E5;
+    color:white;
+    padding:20px;
+    border-radius:12px;
+}
+.amount-box{
+    background:#EEF2FF;
+    border:1px solid #C7D2FE;
+    padding:20px;
+    text-align:center;
+    border-radius:12px;
+    margin-top:20px;
+}
+.btn{
+    display:inline-block;
+    padding:12px 20px;
+    background:#10B981;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    margin-top:20px;
+}
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#777;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h2>🏢 SocietyHub</h2>
+    <h3>Maintenance Pending</h3>
+</div>
+
+<p>Hello {{ username }},</p>
+
+<p>Your maintenance payment is pending. Please complete it as soon as possible.</p>
+
+<div class="amount-box">
+    <h2>₹ {{ amount }}</h2>
+    <p>{{ month }} {{ year }}</p>
+</div>
+
+<a class="btn" href="http://127.0.0.1:8000/members/member/member_maintenance/">
+    Pay Now →
+</a>
+
+<div class="footer">
+    <p>Thank you ❤️</p>
+    <p>SocietyHub Team</p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Approved | SocietyHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            padding: 25px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .content {
+            padding: 30px;
+            color: #374151;
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 12px 0;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            background: #7c3aed;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #f9fafb;
+            text-align: center;
+            padding: 18px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🏡 SocietyHub</h1>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h2>Hello {{ username }} 👋</h2>
+
+            <p>
+                🎉 We are happy to inform you that your <b>SocietyHub account has been approved</b>.
+            </p>
+
+            <p>
+                You can now login and access all society features like:
+                <br>• Events & Competitions  
+                <br>• Maintenance Payments  
+                <br>• Complaints & Notices
+            </p>
+
+            <a href="http://127.0.0.1:8000/login/" class="button">
+                Login to SocietyHub
+            </a>
+
+            <p style="margin-top:30px;">
+                Thank you for being part of our society 🙏
+            </p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2025 SocietyHub • All Rights Reserved  
+            <br>
+            This is an automated email, please do not reply.
+        </div>
+
+    </div>
+
+</body>
+</html>

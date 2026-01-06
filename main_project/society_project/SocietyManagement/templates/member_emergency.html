@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Emergency Contacts</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='65' font-size='55' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body class="bg-gradient-to-br from-red-100 via-orange-100 to-yellow-100 min-h-screen">
+
+<nav class="bg-white shadow px-8 py-4 flex justify-between">
+  <h1 class="text-3xl font-bold text-red-700">🚨 Emergency Contacts</h1>
+  <a href="{% url 'member_dashboard' %}" class="bg-gray-700 text-white px-5 py-2 rounded-lg">
+    ⬅ Dashboard
+  </a>
+</nav>
+
+<div class="max-w-4xl mx-auto p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+{% for c in contacts %}
+<div class="bg-white p-6 rounded-xl shadow-lg border-l-8 border-red-500">
+  <h2 class="text-2xl font-bold text-red-700">{{ c.title }}</h2>
+  <p class="text-lg mt-2">📞 <strong>{{ c.phone }}</strong></p>
+  <p class="text-gray-600 mt-1">{{ c.description }}</p>
+</div>
+{% empty %}
+<p>No emergency contacts available</p>
+{% endfor %}
+
+</div>
+</body>
+</html>

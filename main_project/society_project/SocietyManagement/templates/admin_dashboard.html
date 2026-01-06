@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SocietyHub | Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- COMMON FAVICON -->
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237c3aed'/%3E%3Ctext x='50' y='66' font-size='54' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+  <style>
+    .bg-animated {
+      background: linear-gradient(-45deg, #7c3aed, #ec4899, #f59e0b, #2563eb);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%}
+      50% {background-position: 100% 50%}
+      100% {background-position: 0% 50%}
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-animated">
+
+<div class="min-h-screen bg-black/40 backdrop-blur-xl">
+
+  <!-- NAVBAR -->
+  <nav class="px-6 md:px-10 py-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-white/20 backdrop-blur-lg shadow-lg sticky top-0 z-50">
+
+    <h1 class="text-3xl font-extrabold text-white drop-shadow">
+      🏢 SocietyHub Admin
+    </h1>
+
+    <div class="flex gap-3 items-center">
+      <span class="bg-white/30 text-white px-4 py-2 rounded-lg shadow text-sm md:text-base">
+        Welcome, Admin 👑
+      </span>
+
+      <a href="/adminpanel/adminlogout/"
+         class="bg-red-500 hover:bg-red-600 transition px-5 py-2 rounded-lg text-white shadow">
+        Logout
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- MAIN -->
+  <section class="px-6 md:px-10 py-10">
+
+    <!-- HEADER -->
+    <div class="mb-8">
+      <h2 class="text-4xl font-extrabold text-white">Admin Dashboard</h2>
+      <p class="text-gray-200 mt-2 text-lg">
+        Control and manage your society efficiently
+      </p>
+    </div>
+    
+
+    <!-- FEATURES -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+
+      <a href="{% url 'members_list' %}"
+         class="bg-white/95 rounded-2xl p-7 shadow-2xl hover:scale-105 transition border border-purple-400 block">
+        <h3 class="text-2xl font-bold text-purple-700">👥 Members</h3>
+        <p class="text-gray-700 mt-2">Approve, reject & manage members.</p>
+      </a>
+
+      <a href="{% url 'admin_complaints' %}"
+         class="bg-white/95 rounded-2xl p-7 shadow-2xl hover:scale-105 transition border border-pink-400 block">
+        <h3 class="text-2xl font-bold text-pink-700">⚠ Complaints</h3>
+        <p class="text-gray-700 mt-2">View and resolve issues.</p>
+      </a>
+
+      <a href="{% url 'admin_maintenance_list' %}"
+         class="bg-white/95 rounded-2xl p-7 shadow-2xl hover:scale-105 transition border border-yellow-400 block">
+        <h3 class="text-2xl font-bold text-yellow-700">💸 Payments</h3>
+        <p class="text-gray-700 mt-2">Maintenance & dues management.</p>
+      </a>
+
+      <a href="{% url 'admin_events_list' %}"
+         class="bg-white/95 rounded-2xl p-7 shadow-2xl hover:scale-105 transition border border-indigo-400 block">
+        <h3 class="text-2xl font-bold text-indigo-700">🎉 Events</h3>
+        <p class="text-gray-700 mt-2">Events & competitions.</p>
+      </a>
+
+      <a href="{% url 'admin_emergency_list' %}"
+         class="bg-white/95 rounded-2xl p-7 shadow-2xl hover:scale-105 transition border border-red-400 block sm:col-span-2 lg:col-span-1">
+        <h3 class="text-2xl font-bold text-red-700">🚨 Emergency</h3>
+        <p class="text-gray-700 mt-2">Important emergency contacts.</p>
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-200 text-sm">
+    © 2025 <span class="font-semibold text-white">SocietyHub</span> — Admin Panel
+  </footer>
+
+</div>
+
+</body>
+</html>

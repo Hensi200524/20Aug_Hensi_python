@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Event | SocietyHub Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='65' font-size='55' text-anchor='middle' fill='white'%3E🏡%3C/text%3E%3C/svg%3E">
+
+
+  <style>
+    .bg-animated {
+      background: linear-gradient(-45deg, #7c3aed, #ec4899, #f59e0b, #2563eb);
+      background-size: 400% 400%;
+      animation: move 9s infinite ease-in-out;
+    }
+    @keyframes move {
+      0% {background-position: 0% 50%}
+      50% {background-position: 100% 50%}
+      100% {background-position: 0% 50%}
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-animated">
+
+<div class="min-h-screen bg-black/40 backdrop-blur-xl">
+
+  <!-- HEADER -->
+  <div class="max-w-5xl mx-auto pt-10 px-5">
+      <h1 class="text-4xl font-extrabold text-white">✏ Update Event</h1>
+      <p class="text-gray-200 mt-2 text-lg">Modify event details</p>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="max-w-5xl mx-auto mt-8 bg-white/90 rounded-2xl shadow-2xl p-8 border border-purple-300">
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Event Title -->
+        <div>
+          <label class="font-semibold text-gray-700">Event Title</label>
+          <input type="text" name="title"
+                 value="{{ event.title }}"
+                 class="w-full mt-2 p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/80">
+        </div>
+
+        <!-- Event Date -->
+        <div>
+          <label class="font-semibold text-gray-700">Event Date</label>
+          <input type="date" name="event_date"
+                 value="{{ event.event_date }}"
+                 class="w-full mt-2 p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/80">
+        </div>
+
+        <!-- Event Time -->
+        <div>
+          <label class="font-semibold text-gray-700">Event Time</label>
+          <input type="time" name="event_time"
+                 value="{{ event.event_time }}"
+                 class="w-full mt-2 p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/80">
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label class="font-semibold text-gray-700">Location</label>
+          <input type="text" name="location"
+                 value="{{ event.location }}"
+                 class="w-full mt-2 p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/80">
+        </div>
+
+      </div>
+
+      <!-- Description -->
+      <div class="mt-6">
+        <label class="font-semibold text-gray-700">Event Description</label>
+        <textarea name="description" rows="4"
+                  class="w-full mt-2 p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/80">{{ event.description }}</textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-between mt-8">
+
+        <a href="{% url 'admin_events_list' %}"
+           class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl shadow">
+          ⬅ Back
+        </a>
+
+        <button type="submit"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl shadow-lg text-lg font-semibold">
+          ✔ Update Event
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="h-10"></div>
+
+</div>
+
+</body>
+</html>

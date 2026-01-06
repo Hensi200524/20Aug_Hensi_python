@@ -1,0 +1,31 @@
+from django.urls import path
+from adminpanel import views
+
+urlpatterns = [
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('adminlogout/', views.adminlogout, name='adminlogout'),
+    path("member/edit/<int:id>/", views.edit_member, name="edit_member"),
+    path("member/delete/<int:id>/", views.delete_member, name="delete_member"),
+    path('members/', views.members_list, name="members_list"),
+    path('approve/<int:id>/', views.approve_user, name="approve_member"),
+    path('reject/<int:id>/', views.reject_user, name="reject_member"),
+    path('complaints/', views.admin_complaints, name='admin_complaints'),
+    path('complaints/update/<int:id>/', views.update_complaint, name='update_complaint'),
+    path("delete_complaint/<int:id>/", views.delete_complaint, name="delete_complaint"),
+    path("maintenance/", views.admin_maintenance_list, name="admin_maintenance_list"),
+    path("maintenance/add/", views.add_maintenance, name="add_maintenance"),
+    path("maintenance/update/<int:id>/", views.update_maintenance, name="update_maintenance"),
+    path("maintenance/delete/<int:id>/", views.delete_maintenance, name="delete_maintenance"),
+    path("delete_event/<int:id>/",views.delete_event,name='delete_event'),
+    path("events/", views.admin_events_list, name="admin_events_list"),
+    path("events/add/", views.add_event, name="add_event"),
+    path("update_event/<int:id>/", views.update_event, name="update_event"),
+    path('competitions/', views.admin_competition_list, name='admin_competition_list'),
+    path('competitions/add/', views.add_competition, name='add_competition'),
+    path('competitions/update/<int:id>/', views.update_competition, name='update_competition'),
+    path('competitions/delete/<int:id>/', views.delete_competition, name='delete_competition'),
+    path('competition/<int:comp_id>/registrations/',views.admin_competition_registrations,name='admin_competition_registrations'),
+    path("emergency/", views.admin_emergency_list, name="admin_emergency_list"),
+    path("emergency/add/", views.add_emergency, name="add_emergency"),
+    path("emergency/delete/<int:id>/", views.delete_emergency, name="delete_emergency"),
+]
